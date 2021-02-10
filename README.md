@@ -74,8 +74,6 @@ Understanding the data is a fundamental step in any data science project. It wil
 * `availability_365` - number of days available in the calendar year
     * **in München there is a rule where entire properties can be rented for only 8 weeks during the calendar year, however, this restriction is not valid for rooms**.
 
-We can now check the first five entries in our dataset to better understand our data.
-
 
 ### Dataset Size and Types of Variables
 
@@ -124,6 +122,10 @@ Looking at the Variables Dictionary and also the types of variables present in t
 
 For a cleaner and more objective analysis, these variables will be deleted.
 
+Below, there is a sample of our dataset after cleaning.
+
+![Dataset sample](img/data_sample.png)
+
 
 ### Missing Values
 
@@ -154,7 +156,7 @@ Outliers are data that are very far from your dataset, that is, data out of "nor
 
 For this, a histogram will be plotted to check for the presence of outliers.
     
-![png](output_23_0.png)
+![Histogram of variables](img/histogram.png)
 
 Through the histogram, it is possible to verify the presence of outliers in the variables `price` and `minimum_nights`.
 
@@ -163,7 +165,7 @@ The values do not follow a distribution and distort the entire graphical represe
 * Summary statistics using the `describe()` method;
 * Plot `boxplots` for the variables.
 
-![png]() Summary Statistics Foto
+![Summary Statistics 1](img/summary_statistics.png)
 
 Looking at the statistical summary above, it is possible to obtain valuable information for the analysis and about the presence of outliers.
 
@@ -178,7 +180,7 @@ Below, the boxplot for the variable `price` visually shows the information conta
 
 As a parameter, all data greater than 1000 will be considered an outlier in this analysis. Below, you will see the quantity and ratio of these outliers and the values where `price` are equal to 0.
 
-![png](output_29_0.png)
+![Boxplot Prices](img/box_plot_prices.png)
     
 
 #### Boxplot for "minimum_nights"
@@ -187,16 +189,18 @@ Below, the boxplot for the variable `minimum_nights` visually shows the informat
 
 As a parameter, all data greater than 30 will be considered an outlier in this analysis. Below, you will see the quantity and ratio of these outliers.
     
-![png](output_32_0.png)
+![Boxplot Minimum Nights](img/boxplot_minimum_nights.png)
     
 
 #### Removing Outliers and Creating Data Frame for Analysis
 
 Now with the outliers identified and treated, we shall plot new boxplots analyze them.
     
-![png](output_35_0.png)
+![Boxplot Price and Minimum Nights](img/boxplot_price_and_minimum_nights.png)
     
 Finally, with the clean data frame created and treated, the analysis begins.
+
+![Summary Statistics 2](img/summary_statistics_2.png)
 
 
 ## Data Analysis
@@ -237,11 +241,17 @@ It can be seen that the proportion of property types *'Entire home/apt'* and *'P
 
 As the property types *'Shared room'* and *'Hotel room'* are not relevant to the number of properties being rented on Airbnb in the city of Munich, I will continue this analysis in the neighbourhoods using only the property types *'Entire home/apt'* and *'Private room'*.
 
+![Data frame neighbourhoods / property tipe](img/df_question1_1.png)
+
 It can be seen that the distribution of property types in Munich is well balanced in most neighbourhoods.
 
 Below you can see the neighbourhoods where the proportion of property type *'Entire home/apt'* is higher, so if the Airbnb user wants to stay in one of the neighbourhoods listed below, there is a greater chance that this user will find offers of this type property available.
 
+![Data frame more Entire Home/Apt](img/df_question1_2.png)
+
 Now, you can see the neighbourhoods where the proportion of property type *'Private room'* is higher, so if the Airbnb user wants to stay in one of the neighbourhoods listed below, there is a greater chance that this user will find offers for this type of property available.
+
+![Data frame more Private Room](img/df_question1_3.png)
 
 
 ### Q2 -  What is the average property price in the different neighbourhoods of Munich?
@@ -249,7 +259,11 @@ Now, you can see the neighbourhoods where the proportion of property type *'Priv
 
 It has already been seen in the summary statistics that the average property price in Munich is **€ 105.23**. Below is the average property price per neighbourhood in Munich. We can see that there is a big price difference, where the average price in the **most expensive neighbourhood is € 149.36 and in the cheapest neighbourhood is 74.94**.
 
+![Data frame Average Price](img/df_question2_1.png)
+
 To continue this analysis, I will extract the 2 most expensive and cheapest neighbourhoods in Munich concerning the average price of all properties.
+
+![Data frame Higher and Lower Average Price](img/df_question2_2.png)
 
 
 ### Q3 - How are property prices distributed in the 2 most expensive neighbourhoods?
@@ -280,10 +294,11 @@ When analyzing the price per property type in the two most expensive neighbourho
     * The average price is far from the median (104.91 x 80.00 respectively), which indicates the presence of outliers.
     * It is possible to rent a property of this type in this neighbourhood for **€ 35.00**.
 
+![Data frame Expensive Neighbourhoods](img/df_question3.png)
 
 In order to have a better view of prices and confirmation of the presence of outliers, we will plot the boxplot again for properties in these neighbourhoods.
     
-![png](output_59_0.png) 
+![Boxplot Expensive Neighbourhoods](img/boxplot_question3.png)
 
 Through the boxplot chart, the presence of outliers in the price of different property types in these neighbourhoods is clear. For this reason, it is better to consider the median price, as the median is not as sensitive to outlier values as the average.
 
@@ -330,9 +345,11 @@ When analyzing the price per property type in the two most expensive neighbourho
     
     * It is possible to rent a property of this type in this neighbourhood for **€ 23.00**.
 
+![Data frame Cheap Neighbourhoods](img/df_question4.png)
 
 In order to have a better view of prices and confirmation of the presence of outliers, we will plot the boxplot again for properties in these neighbourhoods.
 
+![Boxplot Cheap Neighbourhoods](img/boxplot_question4.png)
 
 Through the boxplot chart, the presence of outliers in the price of different property types in these neighbourhoods is clear. For this reason, it is better to consider the median price, as the median is not as sensitive to outlier values as the average.
 
@@ -395,7 +412,7 @@ After generating a dictionary of tourist spots in Munich, we can start plotting 
 
 On the map, we can confirm that most of the tourist spots in Munich are located in the most expensive neighbourhoods of the city.
 
-![png](output_73_0.png)   
+![Munich Map](map_question5.png)   
 
 
 ## Conclusion
