@@ -412,7 +412,7 @@ After generating a dictionary of tourist spots in Munich, we can start plotting 
 
 On the map, we can confirm that most of the tourist spots in Munich are located in the most expensive neighbourhoods of the city.
 
-![Munich Map](map_question5.png)   
+![Munich Map](img/map_question5.png)   
 
 
 ## Conclusion
